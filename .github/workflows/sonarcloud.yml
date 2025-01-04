@@ -1,9 +1,14 @@
+
 name: SonarCloud Analysis
 
 on:
+  workflow_dispatch:  # Allows manual trigger
   push:
     tags:
-      - '*'
+      - '*'  # Trigger for all tags
+
+
+
 
 jobs:
   sonarcloud:
@@ -21,3 +26,4 @@ jobs:
             -Dsonar.organization=<your-organization>
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+            
